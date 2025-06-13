@@ -56,30 +56,14 @@ Cada hilo se encarga de una porción del cálculo, y los resultados se acumulan 
 Se mide el tiempo de ejecución de ambas versiones para comparar el rendimiento.
 
 📌 Modo de uso:
-
-bash
-Copiar
-Editar
 ./dotprod N num_hilos modo
+
 N: tamaño del vector (entero positivo)
-
 num_hilos: cantidad de hilos a usar en modo paralelo
-
 modo: 0 para ejecución secuencial, 1 para ejecución paralela
 
-📌 Ejemplo de ejecución:
-
-bash
-Copiar
-Editar
-./dotprod 10000000 4 0   # Ejecución secuencial
-./dotprod 10000000 4 1   # Ejecución paralela con 4 hilos
 📌 Consideraciones:
-
 Los vectores A y B son generados automáticamente en el programa.
-
 El resultado del producto punto es un valor escalar (double).
-
 El número de hilos puede ajustarse según el sistema.
-
 El programa maneja errores de entrada y sincronización entre hilos.
