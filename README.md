@@ -40,3 +40,46 @@ En esta sección se desarrolla una **aplicación en C usando la biblioteca MPI**
 - Se utiliza la función `MPI_Type_indexed` para crear un tipo de dato derivado que representa los elementos de la parte triangular superior.
 - El proceso 0 recibe como argumentos una matriz `n x n`, construye el tipo derivado y envía los datos con una sola llamada a `MPI_Send`.
 - El proceso 1 recibe los datos con una sola llamada a `MPI_Recv` y los imprime por pantalla.
+
+---
+
+📁 Carpeta: Pthreads
+🧠 Descripción
+En esta sección se desarrolla una aplicación en C utilizando hilos POSIX (pthreads), enfocada en calcular el producto punto de dos vectores de manera secuencial y paralela.
+
+Se implementa una función que calcula el producto punto de forma secuencial como referencia.
+
+Se utiliza la biblioteca pthread.h para dividir la tarea en varios hilos que trabajan en paralelo, optimizando el tiempo de ejecución cuando los vectores son grandes.
+
+Cada hilo se encarga de una porción del cálculo, y los resultados se acumulan utilizando mutexes para asegurar la sincronización y evitar condiciones de carrera.
+
+Se mide el tiempo de ejecución de ambas versiones para comparar el rendimiento.
+
+📌 Modo de uso:
+
+bash
+Copiar
+Editar
+./dotprod N num_hilos modo
+N: tamaño del vector (entero positivo)
+
+num_hilos: cantidad de hilos a usar en modo paralelo
+
+modo: 0 para ejecución secuencial, 1 para ejecución paralela
+
+📌 Ejemplo de ejecución:
+
+bash
+Copiar
+Editar
+./dotprod 10000000 4 0   # Ejecución secuencial
+./dotprod 10000000 4 1   # Ejecución paralela con 4 hilos
+📌 Consideraciones:
+
+Los vectores A y B son generados automáticamente en el programa.
+
+El resultado del producto punto es un valor escalar (double).
+
+El número de hilos puede ajustarse según el sistema.
+
+El programa maneja errores de entrada y sincronización entre hilos.
