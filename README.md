@@ -43,27 +43,24 @@ En esta sección se desarrolla una **aplicación en C usando la biblioteca MPI**
 
 ---
 
-📁 Carpeta: Pthreads
-🧠 Descripción
-En esta sección se desarrolla una aplicación en C utilizando hilos POSIX (pthreads), enfocada en calcular el producto punto de dos vectores de manera secuencial y paralela.
+## 📁 Carpeta: Pthreads
+### 🧠 Descripción
+En esta sección se desarrolla una **aplicación en C utilizando hilos POSIX (pthreads)**, enfocada en **calcular el producto punto de dos vectores de manera secuencial y paralela**.
 
-Se implementa una función que calcula el producto punto de forma secuencial como referencia.
+ - Se implementa una función que calcula el producto punto de forma secuencial como referencia.
+ - Se utiliza la biblioteca pthread.h para dividir la tarea en varios hilos que trabajan en paralelo, optimizando el tiempo de ejecución cuando los vectores son grandes.
+ - Cada hilo se encarga de una porción del cálculo, y los resultados se acumulan utilizando mutexes para asegurar la sincronización y evitar condiciones de carrera.
+ - Se mide el tiempo de ejecución de ambas versiones para comparar el rendimiento.
 
-Se utiliza la biblioteca pthread.h para dividir la tarea en varios hilos que trabajan en paralelo, optimizando el tiempo de ejecución cuando los vectores son grandes.
+### 📌 Modo de uso:
+    ./dotprod N num_hilos modo
+        N: tamaño del vector (entero positivo)
+        num_hilos: cantidad de hilos a usar en modo paralelo
+        modo: 0 para ejecución secuencial, 1 para ejecución paralela
 
-Cada hilo se encarga de una porción del cálculo, y los resultados se acumulan utilizando mutexes para asegurar la sincronización y evitar condiciones de carrera.
-
-Se mide el tiempo de ejecución de ambas versiones para comparar el rendimiento.
-
-📌 Modo de uso:
-./dotprod N num_hilos modo
-
-N: tamaño del vector (entero positivo)
-num_hilos: cantidad de hilos a usar en modo paralelo
-modo: 0 para ejecución secuencial, 1 para ejecución paralela
-
-📌 Consideraciones:
-Los vectores A y B son generados automáticamente en el programa.
-El resultado del producto punto es un valor escalar (double).
-El número de hilos puede ajustarse según el sistema.
-El programa maneja errores de entrada y sincronización entre hilos.
+## 📁 Carpeta: OpenMP
+### Descripción
+En esta sección se desarrolla una **aplicación en C utilizando Open MP**, enfocada en **calcular la suma de N números aleatorios de forma paralela** para utilizar múltiples hilos de ejecución y obtener un mejor tiempo de respuesta. 
+ - Se divide el conjunto de datos en porciones más pequeñas
+ - Esas partes se a un hilo diferente para calcular una suma parcial
+ - Se combinan las sumas parciales para obtener la suma total
