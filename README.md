@@ -60,7 +60,8 @@ En esta sección se desarrolla una **aplicación en C utilizando hilos POSIX (pt
 
 ## 📁 Carpeta: OpenMP
 ### Descripción
-En esta sección se desarrolla una **aplicación en C utilizando Open MP**, enfocada en **calcular la suma de N números aleatorios de forma paralela** para utilizar múltiples hilos de ejecución y obtener un mejor tiempo de respuesta. 
+En esta sección se desarrolla una **aplicación en C utilizando Open MP**, enfocada en **calcular la suma de N números aleatorios de forma paralela** para utilizar múltiples hilos de ejecución y obtener un mejor tiempo de respuesta. Además, se quiere determinar porque no funciona la suma paralela con valores mayores e iguales a 100,000
  - Se divide el conjunto de datos en porciones más pequeñas
  - Esas partes se a un hilo diferente para calcular una suma parcial
  - Se combinan las sumas parciales para obtener la suma total
+### La suma no funcion correctamente ya que el tipo de la variable sum es int, lo que causa overflow y hace que el resultado sea incorrecto. Se modificó el codigo con el tipo long y ahora el resultado es correcto.
